@@ -12,6 +12,8 @@
     <modules>
         <module>jvm-advanced</module>
         <module>multi-threaded</module>
+        <module>agent-object-size</module>
+        <module>syntax-base</module>
     </modules>
 
 
