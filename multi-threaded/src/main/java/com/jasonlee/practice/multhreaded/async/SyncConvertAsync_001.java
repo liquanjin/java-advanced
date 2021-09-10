@@ -23,7 +23,7 @@ import java.util.stream.IntStream;
  * @author : jason Lee
  */
 @Slf4j
-@ComponentScan(value = "com.jasonlee.pratice.multhreaded")
+@ComponentScan(value = "com.jasonlee.practice.multhreaded")
 @SpringBootTest(classes = SyncConvertAsync_001.class)
 @RunWith(SpringRunner.class)
 public class SyncConvertAsync_001 {
@@ -46,7 +46,7 @@ public class SyncConvertAsync_001 {
 
         //parallelRun();
 
-        completableFutureRun();
+        //completableFutureRun();
     }
 
     /**
@@ -92,7 +92,8 @@ public class SyncConvertAsync_001 {
     /**
      * parallelStream 并行
      */
-    private static void parallelRun() throws JsonProcessingException {
+    @Test
+    public void parallelRun() throws JsonProcessingException {
         List<String> names = IntStream.range(1, 12)
                 .boxed()
                 .collect(Collectors.toList())

@@ -10,6 +10,8 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * 异步转同步
  *
+ * ref: 印象笔记. Thread|进阶|2021-04-13
+ *
  * @author : liquanjin
  * @version :
  * @createAt : 2021/4/8 6:22 下午
@@ -20,6 +22,7 @@ public class TestThreadAsyncConvertSync {
 
         /**
          * 异步转同步的五种方式：
+         *  核心: 主线程等待 + 主线程获取变化
          * 1. Synchronized + wait\nofity 方法。
          *   主、子线程都 synchronizedCountDownLetchCountDownLetchCountDownLetch 包裹，主线程wait() 子线程notify（） 。
          * 2. ReentrantLock + Condition 实现。
@@ -28,7 +31,7 @@ public class TestThreadAsyncConvertSync {
          * 4. CountDownLatch 倒计时对象。构建时指明倒计时次数，主线程await() , 子线程处理完后 countDown() .
          * 5. CyclicBarrier 循环屏障对象。当所有线程（线程数量就是构建时都size）都达到公共屏障时，所有线程都将被释放。可重复使用。
          * 6. join 方法。
-         * 7. LockSupport的park 和 unpark 方法
+         * 7. Thread.sleep(等待) + volatile(获取变化) 用法. 循环判断volatile 结构是否改变.
          */
         //testDemo1();
         //testDemo2();
